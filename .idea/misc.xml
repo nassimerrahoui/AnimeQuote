@@ -6,6 +6,7 @@
         <entry key="app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.2085" />
         <entry key="app/src/main/res/font/font.xml" value="0.3390625" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/anime_title_item.xml" value="0.1734375" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.375" />
         <entry key="app/src/main/res/layout/item_anime_title.xml" value="0.1" />
         <entry key="app/src/main/res/layout/item_horizontal_quote.xml" value="0.31979166666666664" />

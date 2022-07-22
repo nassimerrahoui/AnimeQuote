@@ -2,7 +2,7 @@
     <string name="app_name">Anime Quote</string>
 
     <!-- Home page -->
-    <string name="home_page_title">Découvrir quelques citations</string>
+    <string name="home_page_title">Les animés disponibles</string>
 
     <!-- Search quotes page -->
     <string name="quotes_by_anime_titile_page_title">Citations par titre d\'animé</string>
