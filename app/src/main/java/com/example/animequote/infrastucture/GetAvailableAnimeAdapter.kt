@@ -10,7 +10,8 @@ class GetAvailableAnimeAdapter @Inject constructor(
     private val animeQuoteApi: AnimeQuoteApi,
 ) : GetAvailableAnimePort {
     override suspend fun execute(): List<AnimeTitle> = withContext(Dispatchers.IO) {
-        animeQuoteApi.getAvailableAnime()
+        animeQuoteApi
+            .getAvailableAnime()
             .filter { it.isNotEmpty() }
             .map(::AnimeTitle)
     }

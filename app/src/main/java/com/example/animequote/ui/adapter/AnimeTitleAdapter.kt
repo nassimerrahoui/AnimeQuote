@@ -29,6 +29,9 @@ class AnimeTitleAdapter : ListAdapter<AnimeTitle, AnimeTitleAdapter.AnimeTitleVi
     class AnimeTitleViewHolder(private val binding: AnimeTitleItemBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: AnimeTitle) {
             binding.animeTitle.text = item.value
+            binding.animeTitle.setOnClickListener {
+                // FIXME: implement redirection to a new fragment ? to display the quotes of the anime
+            }
         }
     }
 }

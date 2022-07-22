@@ -3,8 +3,12 @@ package com.example.animequote.config
 import com.example.animequote.domain.quote.usecases.getAvailableAnime.port.GetAvailableAnimeInteractor
 import com.example.animequote.domain.quote.usecases.getAvailableAnime.port.input.GetAvailableAnimeUseCase
 import com.example.animequote.domain.quote.usecases.getAvailableAnime.port.output.GetAvailableAnimePort
+import com.example.animequote.domain.quote.usecases.getQuotesByAnimeTitle.port.GetQuotesByAnimeTitleInteractor
+import com.example.animequote.domain.quote.usecases.getQuotesByAnimeTitle.port.input.GetQuotesByAnimeTitleUseCase
+import com.example.animequote.domain.quote.usecases.getQuotesByAnimeTitle.port.output.GetQuotesByAnimeTitlePort
 import com.example.animequote.infrastucture.AnimeQuoteApi
 import com.example.animequote.infrastucture.GetAvailableAnimeAdapter
+import com.example.animequote.infrastucture.GetQuotesByAnimeTitleAdapter
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
@@ -22,6 +26,12 @@ abstract class AnimeQuoteModule {
 
     @Binds
     abstract fun bindsGetAvailableAnimeUseCase(getAvailableAnimeInteractor: GetAvailableAnimeInteractor): GetAvailableAnimeUseCase
+
+    @Binds
+    abstract fun bindsGetQuotesByAnimeTitlePort(getQuotesByAnimeTitleAdapter: GetQuotesByAnimeTitleAdapter): GetQuotesByAnimeTitlePort
+
+    @Binds
+    abstract fun bindsGetQuotesByAnimeTitleUseCase(getQuotesByAnimeTitleInteractor: GetQuotesByAnimeTitleInteractor): GetQuotesByAnimeTitleUseCase
 
     companion object {
         @Provides
