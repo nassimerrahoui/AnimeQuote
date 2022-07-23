@@ -13,6 +13,7 @@ class GetAvailableAnimeAdapter @Inject constructor(
         animeQuoteApi
             .getAvailableAnime()
             .filter { it.isNotEmpty() }
+            .sorted()
             .map(::AnimeTitle)
     }
 }
