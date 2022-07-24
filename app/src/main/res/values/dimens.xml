@@ -2,5 +2,7 @@
 <resources>
     <dimen name="default_margin">20dp</dimen>
     <dimen name="default_font_size">18sp</dimen>
-    <dimen name="frame_margin">120dp</dimen>
+    <dimen name="frame_margin">60dp</dimen>
+    <dimen name="card_padding">20dp</dimen>
+    <dimen name="card_margin">20dp</dimen>
 </resources>
