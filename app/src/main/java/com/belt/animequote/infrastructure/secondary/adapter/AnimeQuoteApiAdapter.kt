@@ -1,9 +1,9 @@
-package com.belt.animequote.infrastucture.secondary.adapter
+package com.belt.animequote.infrastructure.secondary.adapter
 
 import com.belt.animequote.domain.entity.AnimeTitle
 import com.belt.animequote.domain.entity.Quote
 import com.belt.animequote.domain.port.output.QuoteRepository
-import com.belt.animequote.infrastucture.secondary.client.AnimeQuoteApiClient
+import com.belt.animequote.infrastructure.secondary.client.AnimeQuoteApiClient
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject

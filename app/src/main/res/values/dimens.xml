@@ -5,4 +5,6 @@
     <dimen name="frame_margin">60dp</dimen>
     <dimen name="card_padding">20dp</dimen>
     <dimen name="card_margin">20dp</dimen>
+    <dimen name="quote_padding">20dp</dimen>
+    <dimen name="quote_margin">20dp</dimen>
 </resources>

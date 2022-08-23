@@ -1,4 +1,4 @@
-package com.example.animequote
+package com.belt.animequote
 
 import org.junit.Test
 

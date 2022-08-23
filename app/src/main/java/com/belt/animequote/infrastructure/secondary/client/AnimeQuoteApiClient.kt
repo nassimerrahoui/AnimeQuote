@@ -1,6 +1,6 @@
-package com.belt.animequote.infrastucture.secondary.client
+package com.belt.animequote.infrastructure.secondary.client
 
-import com.belt.animequote.infrastucture.primary.RestQuote
+import com.belt.animequote.infrastructure.secondary.mapper.RestQuote
 import retrofit2.http.GET
 import retrofit2.http.Query
 

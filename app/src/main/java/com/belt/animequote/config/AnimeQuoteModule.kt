@@ -5,15 +5,15 @@ import com.belt.animequote.domain.port.input.GetAvailableAnimeUseCase
 import com.belt.animequote.domain.port.output.QuoteRepository
 import com.belt.animequote.application.getQuotesByAnimeTitle.GetQuotesByAnimeTitleInteractor
 import com.belt.animequote.domain.port.input.GetQuotesByAnimeTitleUseCase
-import com.belt.animequote.infrastucture.secondary.client.AnimeQuoteApiClient
-import com.belt.animequote.infrastucture.secondary.adapter.AnimeQuoteApiAdapter
+import com.belt.animequote.infrastructure.secondary.client.AnimeQuoteApiClient
+import com.belt.animequote.infrastructure.secondary.adapter.AnimeQuoteApiAdapter
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
-import retrofit2.converter.moshi.MoshiConverterFactory
+import retrofit2.converter.jackson.JacksonConverterFactory
 import javax.inject.Singleton
 
 @Module
@@ -29,12 +29,14 @@ abstract class AnimeQuoteModule {
     abstract fun bindsGetQuotesByAnimeTitleUseCase(getQuotesByAnimeTitleInteractor: GetQuotesByAnimeTitleInteractor): GetQuotesByAnimeTitleUseCase
 
     companion object {
+        private const val BASE_URL = "https://animechan.vercel.app/api/"
+
         @Provides
         @Singleton
         fun provideAnimeQuoteApi(): AnimeQuoteApiClient {
             return Retrofit.Builder()
-                .baseUrl("https://animechan.vercel.app/api/")
-                .addConverterFactory(MoshiConverterFactory.create())
+                .baseUrl(BASE_URL)
+                .addConverterFactory(JacksonConverterFactory.create())
                 .build()
                 .create(AnimeQuoteApiClient::class.java)
         }

@@ -1,3 +1,3 @@
 package com.belt.animequote.domain.entity
 
-data class Quote(val id: AnimeTitle, val name: CharacterName, val value: QuoteValue)
+data class Quote(val id: AnimeTitle, val characterName: CharacterName, val text: QuoteText)

@@ -5,10 +5,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.animequote.databinding.AnimeTitleItemBinding
+import com.belt.animequote.databinding.AnimeTitleItemBinding
 import com.belt.animequote.domain.entity.AnimeTitle
+import com.belt.animequote.infrastructure.primary.mapper.ViewAnimeTitle
 
-class AnimeTitleAdapter : ListAdapter<AnimeTitle, AnimeTitleAdapter.AnimeTitleViewHolder>(
+class AnimeTitleAdapter(private val listener: AnimeTitleViewHolder.OnAnimeTitleClickListener) : ListAdapter<AnimeTitle, AnimeTitleAdapter.AnimeTitleViewHolder>(
     AnimeTitleDiffCallback()
 ) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AnimeTitleViewHolder {
@@ -24,15 +25,19 @@ class AnimeTitleAdapter : ListAdapter<AnimeTitle, AnimeTitleAdapter.AnimeTitleVi
     override fun onBindViewHolder(holder: AnimeTitleViewHolder, position: Int) {
         val animeTitle = getItem(position)
         if (animeTitle != null) {
-            holder.bind(animeTitle)
+            holder.bind(animeTitle, listener)
         }
     }
 
     class AnimeTitleViewHolder(private val binding: AnimeTitleItemBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(item: AnimeTitle) {
+        interface OnAnimeTitleClickListener {
+            fun onClick(viewAnimeTitle: ViewAnimeTitle)
+        }
+
+        fun bind(item: AnimeTitle, listener: OnAnimeTitleClickListener) {
             binding.animeTitle.text = item.value
             binding.animeTitle.setOnClickListener {
-                // FIXME: implement redirection to a new fragment ? to display the quotes of the anime
+                listener.onClick(ViewAnimeTitle(item.value))
             }
         }
     }

@@ -1,7 +1,7 @@
 package com.belt.animequote.domain.entity
 
 @JvmInline
-value class QuoteValue(val value: String) {
+value class QuoteText(val value: String) {
     init {
         if (value.isEmpty()) {
             throw IllegalArgumentException("value can't be empty")

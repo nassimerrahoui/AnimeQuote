@@ -9,14 +9,13 @@
         android:id="@+id/card_view"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        card_view:contentPadding="@dimen/card_padding">
+        card_view:contentPadding="@dimen/card_padding" >
 
         <TextView
             android:id="@+id/anime_title"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:text="@string/quote_anime_title"/>
+            android:text="@string/quote_anime_title" />
     </androidx.cardview.widget.CardView>
-
 </LinearLayout>

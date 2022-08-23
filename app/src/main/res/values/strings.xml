@@ -9,7 +9,7 @@
     <string name="quotes_by_character_name_page_title">Citations par nom de personnage</string>
 
     <!-- Quote -->
-    <string name="quote_anime_title">Titre de l\animé</string>
+    <string name="quote_anime_title">Titre de l\'animé</string>
     <string name="quote_character_name">Nom du personnage</string>
-    <string name="quote_value">Nom du personnage</string>
+    <string name="quote_text">Texte de la citation</string>
 </resources>
