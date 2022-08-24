@@ -38,7 +38,7 @@ class HomeFragment : Fragment(), AnimeTitleAdapter.AnimeTitleViewHolder.OnAnimeT
         binding.animeTitleRecyclerView.apply {
             adapter = animeTitleAdapter
             layoutManager = LinearLayoutManager(context)
-            this.addItemDecoration(AnimeTitleItemDecorator(resources.getDimensionPixelSize(R.dimen.card_margin)))
+            this.addItemDecoration(AnimeTitleItemDecorator(resources.getDimensionPixelSize(R.dimen.card_anime_title_margin)))
         }
         availableAnimeViewModel.loadAvailableAnime()
         availableAnimeViewModel.availableAnime.observe(viewLifecycleOwner, onNewAnimeTitle)

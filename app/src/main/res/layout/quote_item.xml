@@ -13,7 +13,7 @@
         android:layout_gravity="center_vertical"
         android:text="@string/quote_character_name"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/quote_text"
@@ -23,6 +23,6 @@
         android:text="@string/quote_text"
         android:layout_marginTop="@dimen/quote_margin"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/quote_character_name"/>
+        app:layout_constraintTop_toBottomOf="@+id/quote_character_name" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

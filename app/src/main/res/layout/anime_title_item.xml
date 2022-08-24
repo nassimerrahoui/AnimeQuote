@@ -8,8 +8,8 @@
         xmlns:card_view="http://schemas.android.com/apk/res-auto"
         android:id="@+id/card_view"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        card_view:contentPadding="@dimen/card_padding" >
+        android:layout_height="@dimen/card_anime_title_height"
+        card_view:contentPadding="@dimen/card_anime_title_padding" >
 
         <TextView
             android:id="@+id/anime_title"

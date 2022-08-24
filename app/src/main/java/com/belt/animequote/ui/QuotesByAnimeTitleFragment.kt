@@ -33,13 +33,17 @@ class QuotesByAnimeTitleFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.pageTitle.text = args.animeTitle.value
+        initQuotesRecyclerView()
+    }
+
+    private fun initQuotesRecyclerView() {
         binding.quotesByAnimeTitleRecyclerView.apply {
             adapter = quotesByAnimeTitleAdapter
             layoutManager = LinearLayoutManager(context)
         }
 
-        val animeTitle = args.animeTitle.toAnimeTitle()
-        quotesByAnimeTitleViewModel.loadQuotesByAnimeTitle(animeTitle)
+        quotesByAnimeTitleViewModel.loadQuotesByAnimeTitle(args.animeTitle.toAnimeTitle())
         quotesByAnimeTitleViewModel.quotesByAnimeTitle.observe(viewLifecycleOwner, onNewQuote)
     }
 
