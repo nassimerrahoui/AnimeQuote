@@ -5,16 +5,25 @@ buildscript {
         hiltVersion = '2.43.2'
         retrofitVersion  = '2.9.0'
         navigationVersion = '2.5.1'
+        jUnitVersion = '4.13.2'
+        assertJVersion = '3.23.1'
+        mockitoVersion = '4.7.0'
+        mockitoKotlinVersion = '4.0.0'
+        mockkVersion = '1.12.7'
+        koverVersion = '0.6.0'
+
     }
 
     repositories {
         google()
+        mavenCentral()
     }
 
     dependencies {
         classpath "com.google.dagger:hilt-android-gradle-plugin:$hiltVersion"
         classpath "org.jetbrains.kotlin:kotlin-serialization:$kotlinVersion"
         classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$navigationVersion"
+        classpath "org.jetbrains.kotlinx:kover:$koverVersion"
     }
 }
 

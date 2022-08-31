@@ -38,13 +38,13 @@ class QuotesByAnimeTitleAdapter : ListAdapter<Quote, QuotesByAnimeTitleAdapter.Q
 
 private class QuotesByAnimeTitleDiffCallback : DiffUtil.ItemCallback<Quote>() {
     override fun areItemsTheSame(oldItem: Quote, newItem: Quote): Boolean {
-        return oldItem.id == newItem.id
+        return oldItem.animeTitle == newItem.animeTitle
                 && oldItem.characterName == newItem.characterName
                 && oldItem.text == newItem.text
     }
 
     override fun areContentsTheSame(oldItem: Quote, newItem: Quote): Boolean {
-        return oldItem.id == newItem.id
+        return oldItem.animeTitle == newItem.animeTitle
                 && oldItem.characterName == newItem.characterName
                 && oldItem.text == newItem.text
     }

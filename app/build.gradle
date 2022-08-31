@@ -5,6 +5,7 @@ plugins {
     id 'dagger.hilt.android.plugin'
     id 'org.jetbrains.kotlin.plugin.serialization'
     id 'androidx.navigation.safeargs.kotlin'
+    id 'org.jetbrains.kotlinx.kover'
 }
 
 android {
@@ -42,51 +43,46 @@ android {
 }
 
 dependencies {
+    /** Android */
     implementation 'androidx.core:core-ktx:1.8.0'
     implementation 'androidx.appcompat:appcompat:1.5.0'
-    implementation 'com.google.android.material:material:1.6.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1'
+    implementation 'androidx.fragment:fragment-ktx:1.5.2'
+    implementation "androidx.cardview:cardview:1.0.0"
+    implementation 'com.google.android.material:material:1.6.1'
 
-    // Http client
+    /** Http client */
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
     implementation "com.squareup.retrofit2:converter-jackson:$retrofitVersion"
 
-    // Serialization
+    /** Serialization */
     implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.2"
 
-    // Coroutine
+    /** Coroutine */
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4'
 
-    // Dependency injection
+    /** Dependency injection */
     implementation "com.google.dagger:hilt-android:$hiltVersion"
     kapt "com.google.dagger:hilt-android-compiler:$hiltVersion"
 
-    // For viewModelScope
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1'
-
-    // For viewModels
-    implementation 'androidx.fragment:fragment-ktx:1.5.2'
-
-    // For card
-    implementation "androidx.cardview:cardview:1.0.0"
-
-    /** For navigation graph **/
-
+    /** Navigation **/
     implementation "androidx.navigation:navigation-fragment-ktx:$navigationVersion"
     implementation "androidx.navigation:navigation-ui-ktx:$navigationVersion"
-
-    // For Feature module Support
     implementation "androidx.navigation:navigation-dynamic-features-fragment:$navigationVersion"
+    implementation "androidx.navigation:navigation-compose:$navigationVersion"
 
-    // Testing Navigation
+    /** Testing */
+    testImplementation "junit:junit:$jUnitVersion"
+    testImplementation "org.assertj:assertj-core:$assertJVersion"
+    testImplementation "org.mockito:mockito-core:$mockitoVersion"
+    testImplementation "org.mockito.kotlin:mockito-kotlin:$mockitoKotlinVersion"
+    testImplementation "io.mockk:mockk:$mockkVersion"
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     androidTestImplementation "androidx.navigation:navigation-testing:$navigationVersion"
 
-    // Jetpack Compose Integration
-    implementation "androidx.navigation:navigation-compose:$navigationVersion"
 }
 
 // Allow references to generated code

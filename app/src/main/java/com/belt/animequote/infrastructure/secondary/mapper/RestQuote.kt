@@ -14,12 +14,11 @@ data class RestQuote(
     @JsonProperty("character")
     val characterName: String,
     @JsonProperty("quote")
-    val quoteText: String,
+    val text: String,
 ) {
-    fun toQuote(): Quote {
-        val animeTitle = AnimeTitle(animeTitle)
-        val characterName = CharacterName(characterName)
-        val quoteText = QuoteText(quoteText)
-        return Quote(animeTitle, characterName, quoteText)
-    }
+    fun toQuote(): Quote = Quote(
+        animeTitle = AnimeTitle(animeTitle),
+        characterName = CharacterName(characterName),
+        text = QuoteText(text),
+    )
 }
