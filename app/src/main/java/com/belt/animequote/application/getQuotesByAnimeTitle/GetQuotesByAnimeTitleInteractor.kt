@@ -10,7 +10,8 @@ import javax.inject.Inject
 
 class GetQuotesByAnimeTitleInteractor @Inject constructor(
     private val quoteRepository: QuoteRepository
-) : GetQuotesByAnimeTitleUseCase {
+    ) : GetQuotesByAnimeTitleUseCase {
+
     override suspend fun execute(animeTitle: AnimeTitle): Flow<List<Quote>> =
         flow {
             emit(quoteRepository.findByAnimeTitle(animeTitle))

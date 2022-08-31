@@ -3,6 +3,7 @@
 
     <!-- Home page -->
     <string name="home_page_title">Les animés disponibles</string>
+    <string name="bookmark_icon_description">Ajouter dans mes favoris</string>
 
     <!-- Search quotes page -->
     <string name="quotes_by_anime_titile_page_title">Citations par titre d\'animé</string>

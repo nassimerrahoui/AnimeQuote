@@ -32,13 +32,15 @@ class AnimeTitleAdapter(private val listener: AnimeTitleViewHolder.OnAnimeTitleC
     class AnimeTitleViewHolder(private val binding: AnimeTitleItemBinding) : RecyclerView.ViewHolder(binding.root) {
         interface OnAnimeTitleClickListener {
             fun onClick(viewAnimeTitle: ViewAnimeTitle)
+            fun onFavoriteIconClick(viewAnimeTitle: ViewAnimeTitle)
         }
 
         fun bind(item: AnimeTitle, listener: OnAnimeTitleClickListener) {
+            val viewAnimeTitle = ViewAnimeTitle(item.value)
+
             binding.animeTitle.text = item.value
-            binding.animeTitle.setOnClickListener {
-                listener.onClick(ViewAnimeTitle(item.value))
-            }
+            binding.animeTitle.setOnClickListener { listener.onClick(viewAnimeTitle) }
+            binding.bookmarkBorderIcon.setOnClickListener { listener.onFavoriteIconClick(viewAnimeTitle) }
         }
     }
 }

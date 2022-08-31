@@ -53,4 +53,9 @@ class HomeFragment : Fragment(), AnimeTitleAdapter.AnimeTitleViewHolder.OnAnimeT
             .actionHomeFragmentToQuotesByAnimeTitleFragment(viewAnimeTitle)
             .let { findNavController().navigate(it) }
     }
+
+    override fun onFavoriteIconClick(viewAnimeTitle: ViewAnimeTitle) {
+        val animeTitle = viewAnimeTitle.toAnimeTitle()
+        availableAnimeViewModel.addAnimeToFavorite(animeTitle)
+    }
 }

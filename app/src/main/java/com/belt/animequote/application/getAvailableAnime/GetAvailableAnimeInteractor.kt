@@ -9,7 +9,8 @@ import javax.inject.Inject
 
 class GetAvailableAnimeInteractor @Inject constructor(
     private val quoteRepository: QuoteRepository
-) : GetAvailableAnimeUseCase {
+    ) : GetAvailableAnimeUseCase {
+
     override suspend fun execute(): Flow<List<AnimeTitle>> =
         flow {
             emit(quoteRepository.findAllAnimeTitle())

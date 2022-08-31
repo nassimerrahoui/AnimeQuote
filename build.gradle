@@ -11,6 +11,7 @@ buildscript {
         mockitoKotlinVersion = '4.0.0'
         mockkVersion = '1.12.7'
         koverVersion = '0.6.0'
+        roomVersion = '2.4.3'
 
     }
 
