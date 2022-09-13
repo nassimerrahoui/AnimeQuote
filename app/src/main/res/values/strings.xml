@@ -4,6 +4,10 @@
     <!-- Home page -->
     <string name="home_page_title">Les animés disponibles</string>
     <string name="bookmark_icon_description">Ajouter dans mes favoris</string>
+    <string name="bookmark_remove_icon_description">Retirer de mes favoris</string>
+
+    <!-- Favorite page -->
+    <string name="favorite_page_title">Mes animés favoris</string>
 
     <!-- Search quotes page -->
     <string name="quotes_by_anime_titile_page_title">Citations par titre d\'animé</string>
@@ -13,4 +17,8 @@
     <string name="quote_anime_title">Titre de l\'animé</string>
     <string name="quote_character_name">Nom du personnage</string>
     <string name="quote_text">Texte de la citation</string>
+
+    <!-- Navigation bar -->
+    <string name="animes_item_title">Animes</string>
+    <string name="favorites_item_title">Favoris</string>
 </resources>

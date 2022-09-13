@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_activity"
@@ -10,19 +10,30 @@
     tools:context="com.belt.animequote.ui.MainActivity">
 
     <TextView
-        android:id="@+id/app_title"
+        android:id="@+id/main_title"
         style="@style/TitleTextStyle"
         android:text="@string/app_name"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragment_container_view"
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/zero_dp"
         app:navGraph="@navigation/nav_graph"
-        app:defaultNavHost="true">
-    </androidx.fragment.app.FragmentContainerView>
+        app:defaultNavHost="true"
+        app:layout_constraintTop_toBottomOf="@+id/main_title"
+        app:layout_constraintBottom_toTopOf="@id/bottom_nav"
+        app:layout_constraintStart_toStartOf="@id/main_title"
+        app:layout_constraintEnd_toEndOf="@id/bottom_nav" />
 
-</LinearLayout>
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_nav"
+        app:menu="@menu/menu_bottom_nav"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

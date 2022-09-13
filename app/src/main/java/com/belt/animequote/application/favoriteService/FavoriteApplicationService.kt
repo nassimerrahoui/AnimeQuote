@@ -11,7 +11,7 @@ class FavoriteApplicationService @Inject constructor(
     private val favoriteAnimeRepository: FavoriteAnimeRepository
     ): FavoriteService {
 
-    override suspend fun getAllFavoriteAnime(): Flow<Set<AnimeTitle>> = flow { emit(favoriteAnimeRepository.findAll().toSet()) }
+    override suspend fun getAllFavoriteAnime(): Flow<List<AnimeTitle>> = flow { emit(favoriteAnimeRepository.findAll()) }
 
     override suspend fun addAnime(animeTitle: AnimeTitle) {
         favoriteAnimeRepository.add(animeTitle)

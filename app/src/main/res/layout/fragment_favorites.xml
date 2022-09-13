@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/home_fragment"
+    android:id="@+id/favorites_fragment"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
     <TextView
-        android:id="@+id/home_page_title"
+        android:id="@+id/favorites_page_title"
         style="@style/SubtitleTextStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/home_page_title" />
+        android:text="@string/favorite_page_title" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/anime_title_recycler_view"
+        android:id="@+id/favorites_anime_title_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical" />

@@ -13,6 +13,15 @@
         </action>
     </fragment>
     <fragment
+        android:id="@+id/favorites_fragment"
+        android:name="com.belt.animequote.ui.FavoritesFragment"
+        android:label="FavoritesFragment" >
+        <action
+            android:id="@+id/action_favoritesFragment_to_quotesByAnimeTitleFragment"
+            app:destination="@+id/quotes_by_anime_title_fragment" >
+        </action>
+    </fragment>
+    <fragment
         android:id="@+id/quotes_by_anime_title_fragment"
         android:name="com.belt.animequote.ui.QuotesByAnimeTitleFragment"
         android:label="QuotesByAnimeTitleFragment" >
