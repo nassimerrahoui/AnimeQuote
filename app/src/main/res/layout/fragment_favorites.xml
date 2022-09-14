@@ -10,7 +10,8 @@
         style="@style/SubtitleTextStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/favorite_page_title" />
+        android:text="@string/favorite_page_title"
+        android:padding="@dimen/default_padding" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/favorites_anime_title_recycler_view"

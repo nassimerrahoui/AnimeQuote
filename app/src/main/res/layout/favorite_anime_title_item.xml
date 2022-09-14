@@ -31,7 +31,9 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/bookmark_remove_icon_description"
                 android:src="@drawable/ic_bookmark_remove"
-                android:layout_alignParentEnd="true" />
+                android:layout_alignParentEnd="true"
+                android:background="@null"
+                card_view:tint="@color/iconColor" />
 
         </RelativeLayout>
 

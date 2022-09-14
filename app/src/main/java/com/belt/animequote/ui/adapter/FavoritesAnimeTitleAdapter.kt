@@ -38,7 +38,7 @@ class FavoritesAnimeTitleAdapter(private val listener: FavoriteAnimeTitleViewHol
             val viewAnimeTitle = ViewAnimeTitle(item.value)
 
             binding.animeTitle.text = item.value
-            binding.animeTitle.setOnClickListener { listener.onClick(viewAnimeTitle) }
+            binding.root.setOnClickListener { listener.onClick(viewAnimeTitle) }
             binding.bookmarkRemoveIcon.setOnClickListener { listener.onRemoveFavoriteIconClick(viewAnimeTitle) }
         }
     }

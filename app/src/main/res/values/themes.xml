@@ -3,7 +3,7 @@
     <style name="Theme.AnimeQuote" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorPrimaryVariant">@color/purple_500</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
@@ -23,6 +23,6 @@
         <item name="android:textSize">24sp</item>
     </style>
     <style name="SubtitleTextStyle" parent="DefaultTextStyle">
-        <item name="android:textColor">@color/darkBlue</item>
+        <item name="android:textColor">@color/purple_700</item>
     </style>
 </resources>
