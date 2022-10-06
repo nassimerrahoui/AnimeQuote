@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -42,10 +43,17 @@ class HomeFragment : Fragment(), AnimeTitleAdapter.AnimeTitleViewHolder.OnAnimeT
         }
         availableAnimeViewModel.loadAvailableAnime()
         availableAnimeViewModel.availableAnime.observe(viewLifecycleOwner, onNewAnimeTitle)
+        initSearchAnimeListener()
     }
 
     private val onNewAnimeTitle = Observer<List<AnimeTitle>>{
         animeTitleAdapter.submitList(it)
+    }
+
+    private fun initSearchAnimeListener() {
+        binding.searchEditText.doOnTextChanged { text, _, _, _ ->
+           animeTitleAdapter.filter.filter(text)
+        }
     }
 
     override fun onClick(viewAnimeTitle: ViewAnimeTitle) {

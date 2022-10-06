@@ -7,7 +7,6 @@ import androidx.navigation.ui.setupWithNavController
 import com.belt.animequote.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 
-
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

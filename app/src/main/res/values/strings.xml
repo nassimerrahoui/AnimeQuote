@@ -21,4 +21,7 @@
     <!-- Navigation bar -->
     <string name="animes_item_title">Animes</string>
     <string name="favorites_item_title">Favoris</string>
+
+    <!-- Search bar -->
+    <string name="search_hint">Rechercher un anime</string>
 </resources>

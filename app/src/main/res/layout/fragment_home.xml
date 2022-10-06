@@ -13,6 +13,15 @@
         android:text="@string/home_page_title"
         android:padding="@dimen/default_padding" />
 
+    <EditText
+        android:id="@+id/search_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/search_hint"
+        android:inputType="text"
+        android:padding="@dimen/default_padding"
+        android:autofillHints="" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/anime_title_recycler_view"
         android:layout_width="match_parent"
