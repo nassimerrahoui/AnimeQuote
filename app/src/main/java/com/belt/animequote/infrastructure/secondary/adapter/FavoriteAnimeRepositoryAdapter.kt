@@ -15,7 +15,9 @@ class FavoriteAnimeRepositoryAdapter @Inject constructor(
     override suspend fun findAll(): List<AnimeTitle> = withContext(Dispatchers.IO) {
         favoriteAnimeDao
         .findAll()
-        .map { AnimeTitle(it.title) }
+            .map { it.title }
+            .sorted()
+            .map { AnimeTitle(it) }
     }
 
     override suspend fun add(animeTitle: AnimeTitle) = withContext(Dispatchers.IO) {

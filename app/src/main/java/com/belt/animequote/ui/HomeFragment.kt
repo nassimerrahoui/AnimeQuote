@@ -13,16 +13,16 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.belt.animequote.R
 import com.belt.animequote.databinding.FragmentHomeBinding
 import com.belt.animequote.domain.entity.AnimeTitle
-import com.belt.animequote.infrastructure.primary.mapper.ViewAnimeTitle
-import com.belt.animequote.ui.adapter.AnimeTitleAdapter
+import com.belt.animequote.infrastructure.primary.mapper.ViewAnime
+import com.belt.animequote.ui.adapter.AnimeAdapter
 import com.belt.animequote.ui.decorator.AnimeTitleItemDecorator
 import com.belt.animequote.ui.viewmodel.AvailableAnimeViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class HomeFragment : Fragment(), AnimeTitleAdapter.AnimeTitleViewHolder.OnAnimeTitleClickListener {
+class HomeFragment : Fragment(), AnimeAdapter.AnimeViewHolder.OnAnimeClickListener {
     private val availableAnimeViewModel: AvailableAnimeViewModel by viewModels()
-    private val animeTitleAdapter: AnimeTitleAdapter by lazy { AnimeTitleAdapter(this) }
+    private val animeAdapter: AnimeAdapter by lazy { AnimeAdapter(this) }
     private lateinit var binding: FragmentHomeBinding
 
     override fun onCreateView(
@@ -36,34 +36,33 @@ class HomeFragment : Fragment(), AnimeTitleAdapter.AnimeTitleViewHolder.OnAnimeT
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.animeTitleRecyclerView.apply {
-            adapter = animeTitleAdapter
+        binding.animeRecyclerView.apply {
+            adapter = animeAdapter
             layoutManager = LinearLayoutManager(context)
             this.addItemDecoration(AnimeTitleItemDecorator(resources.getDimensionPixelSize(R.dimen.card_anime_title_margin)))
         }
         availableAnimeViewModel.loadAvailableAnime()
-        availableAnimeViewModel.availableAnime.observe(viewLifecycleOwner, onNewAnimeTitle)
+        availableAnimeViewModel.availableAnime.observe(viewLifecycleOwner, onNewViewAnimeList)
         initSearchAnimeListener()
     }
 
-    private val onNewAnimeTitle = Observer<List<AnimeTitle>>{
-        animeTitleAdapter.submitList(it)
+    private val onNewViewAnimeList = Observer<List<ViewAnime>>{
+        animeAdapter.submitList(it)
     }
 
     private fun initSearchAnimeListener() {
         binding.searchEditText.doOnTextChanged { text, _, _, _ ->
-           animeTitleAdapter.filter.filter(text)
+           animeAdapter.filter.filter(text)
         }
     }
 
-    override fun onClick(viewAnimeTitle: ViewAnimeTitle) {
+    override fun onClick(viewAnime: ViewAnime) {
         HomeFragmentDirections
-            .actionHomeFragmentToQuotesByAnimeTitleFragment(viewAnimeTitle)
+            .actionHomeFragmentToQuotesByAnimeTitleFragment(viewAnime)
             .let { findNavController().navigate(it) }
     }
 
-    override fun onFavoriteIconClick(viewAnimeTitle: ViewAnimeTitle) {
-        val animeTitle = viewAnimeTitle.toAnimeTitle()
+    override fun onFavoriteIconClick(animeTitle: AnimeTitle) {
         availableAnimeViewModel.addAnimeToFavorite(animeTitle)
     }
 }

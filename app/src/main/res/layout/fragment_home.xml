@@ -23,7 +23,7 @@
         android:autofillHints="" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/anime_title_recycler_view"
+        android:id="@+id/anime_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical" />

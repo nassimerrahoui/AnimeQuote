@@ -26,8 +26,8 @@
         android:name="com.belt.animequote.ui.QuotesByAnimeTitleFragment"
         android:label="QuotesByAnimeTitleFragment" >
         <argument
-            android:name="animeTitle"
-            app:argType="com.belt.animequote.infrastructure.primary.mapper.ViewAnimeTitle"
+            android:name="anime"
+            app:argType="com.belt.animequote.infrastructure.primary.mapper.ViewAnime"
             app:nullable="false" />
     </fragment>
 </navigation>

@@ -13,6 +13,7 @@ import com.belt.animequote.domain.entity.Quote
 import com.belt.animequote.ui.adapter.QuotesByAnimeTitleAdapter
 import com.belt.animequote.ui.viewmodel.QuotesByAnimeTitleViewModel
 import com.belt.animequote.databinding.FragmentQuotesByAnimeTitleBinding
+import com.belt.animequote.domain.entity.AnimeTitle
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -33,7 +34,7 @@ class QuotesByAnimeTitleFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.quotesByAnimePageTitle.text = args.animeTitle.value
+        binding.quotesByAnimePageTitle.text = args.anime.value
         initQuotesRecyclerView()
     }
 
@@ -43,7 +44,7 @@ class QuotesByAnimeTitleFragment : Fragment() {
             layoutManager = LinearLayoutManager(context)
         }
 
-        quotesByAnimeTitleViewModel.loadQuotesByAnimeTitle(args.animeTitle.toAnimeTitle())
+        quotesByAnimeTitleViewModel.loadQuotesByAnimeTitle(AnimeTitle(args.anime.value))
         quotesByAnimeTitleViewModel.quotesByAnimeTitle.observe(viewLifecycleOwner, onNewQuote)
     }
 

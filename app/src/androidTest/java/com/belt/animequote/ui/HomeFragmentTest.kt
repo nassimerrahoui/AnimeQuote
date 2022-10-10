@@ -39,7 +39,7 @@ class HomeFragmentTest {
 
     @Test
     fun shouldDisplayAvailableAnime() {
-        onView(ViewMatchers.withId(R.id.anime_title_recycler_view))
+        onView(ViewMatchers.withId(R.id.anime_recycler_view))
             .check(ViewAssertions.matches(ViewMatchers.hasDescendant(ViewMatchers.withText("AnimeOne"))))
             .check(ViewAssertions.matches(ViewMatchers.hasDescendant(ViewMatchers.withText("AnimeTwo"))))
     }

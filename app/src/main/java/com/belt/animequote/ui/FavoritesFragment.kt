@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.belt.animequote.R
 import com.belt.animequote.databinding.FragmentFavoritesBinding
 import com.belt.animequote.domain.entity.AnimeTitle
-import com.belt.animequote.infrastructure.primary.mapper.ViewAnimeTitle
+import com.belt.animequote.infrastructure.primary.mapper.ViewAnime
 import com.belt.animequote.ui.adapter.FavoritesAnimeTitleAdapter
 import com.belt.animequote.ui.decorator.AnimeTitleItemDecorator
 import com.belt.animequote.ui.viewmodel.FavoriteAnimeViewModel
@@ -48,14 +48,13 @@ class FavoritesFragment : Fragment(), FavoritesAnimeTitleAdapter.FavoriteAnimeTi
         favoritesAnimeTitleAdapter.submitList(it)
     }
 
-    override fun onClick(viewAnimeTitle: ViewAnimeTitle) {
+    override fun onClick(viewAnime: ViewAnime) {
         FavoritesFragmentDirections
-            .actionFavoritesFragmentToQuotesByAnimeTitleFragment(viewAnimeTitle)
+            .actionFavoritesFragmentToQuotesByAnimeTitleFragment(viewAnime)
             .let { findNavController().navigate(it) }
     }
 
-    override fun onRemoveFavoriteIconClick(viewAnimeTitle: ViewAnimeTitle) {
-        val animeTitle = viewAnimeTitle.toAnimeTitle()
-        favoriteAnimeViewModel.removeAnimeFromFavorites(animeTitle)
+    override fun onRemoveFavoriteIconClick(viewAnime: ViewAnime) {
+        favoriteAnimeViewModel.removeAnimeFromFavorites(AnimeTitle(viewAnime.value))
     }
 }

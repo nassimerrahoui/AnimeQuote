@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.belt.animequote.databinding.FavoriteAnimeTitleItemBinding
 import com.belt.animequote.domain.entity.AnimeTitle
-import com.belt.animequote.infrastructure.primary.mapper.ViewAnimeTitle
+import com.belt.animequote.infrastructure.primary.mapper.ViewAnime
 
 class FavoritesAnimeTitleAdapter(private val listener: FavoriteAnimeTitleViewHolder.OnAnimeTitleClickListener) :
     ListAdapter<AnimeTitle, FavoritesAnimeTitleAdapter.FavoriteAnimeTitleViewHolder>(FavoriteAnimeTitleDiffCallback()) {
@@ -30,16 +30,16 @@ class FavoritesAnimeTitleAdapter(private val listener: FavoriteAnimeTitleViewHol
 
     class FavoriteAnimeTitleViewHolder(private val binding: FavoriteAnimeTitleItemBinding) : RecyclerView.ViewHolder(binding.root) {
         interface OnAnimeTitleClickListener {
-            fun onClick(viewAnimeTitle: ViewAnimeTitle)
-            fun onRemoveFavoriteIconClick(viewAnimeTitle: ViewAnimeTitle)
+            fun onClick(viewAnime: ViewAnime)
+            fun onRemoveFavoriteIconClick(viewAnime: ViewAnime)
         }
 
         fun bind(item: AnimeTitle, listener: OnAnimeTitleClickListener) {
-            val viewAnimeTitle = ViewAnimeTitle(item.value)
+            val viewAnime = ViewAnime(item.value)
 
             binding.animeTitle.text = item.value
-            binding.root.setOnClickListener { listener.onClick(viewAnimeTitle) }
-            binding.bookmarkRemoveIcon.setOnClickListener { listener.onRemoveFavoriteIconClick(viewAnimeTitle) }
+            binding.root.setOnClickListener { listener.onClick(viewAnime) }
+            binding.bookmarkRemoveIcon.setOnClickListener { listener.onRemoveFavoriteIconClick(viewAnime) }
         }
     }
 }
