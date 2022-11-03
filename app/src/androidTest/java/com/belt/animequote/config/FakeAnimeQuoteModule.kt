@@ -11,7 +11,7 @@ import com.belt.animequote.domain.port.input.FavoriteService
 import com.belt.animequote.domain.port.input.GetQuotesByAnimeTitleUseCase
 import com.belt.animequote.domain.port.output.FavoriteAnimeRepository
 import com.belt.animequote.infrastructure.secondary.client.AnimeQuoteApiClient
-import com.belt.animequote.infrastructure.secondary.adapter.AnimeQuoteApiAdapter
+import com.belt.animequote.infrastructure.secondary.adapter.AnimeQuoteInMemoryAdapter
 import com.belt.animequote.infrastructure.secondary.adapter.FavoriteAnimeRepositoryAdapter
 import com.belt.animequote.infrastructure.secondary.adapter.room.dao.FavoriteAnimeDao
 import com.belt.animequote.infrastructure.secondary.client.RoomDatabaseClient
@@ -30,9 +30,6 @@ import javax.inject.Singleton
 )
 abstract class FakeAnimeQuoteModule {
     @Binds
-    abstract fun bindsQuoteRepository(animeQuoteApiAdapter: AnimeQuoteApiAdapter): QuoteRepository
-
-    @Binds
     abstract fun bindsGetAvailableAnimeUseCase(getAvailableAnimeInteractor: GetAvailableAnimeInteractor): GetAvailableAnimeUseCase
 
     @Binds
@@ -49,6 +46,12 @@ abstract class FakeAnimeQuoteModule {
         @Singleton
         fun provideAnimeQuoteApi(): AnimeQuoteApiClient {
             return FakeQuoteApiClient()
+        }
+
+        @Provides
+        @Singleton
+        fun provideQuoteRepository(): QuoteRepository {
+            return AnimeQuoteInMemoryAdapter()
         }
 
         @Provides

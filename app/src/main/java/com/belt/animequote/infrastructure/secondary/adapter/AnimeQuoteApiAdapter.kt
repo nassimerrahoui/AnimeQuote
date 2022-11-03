@@ -13,11 +13,23 @@ class AnimeQuoteApiAdapter @Inject constructor(
 ) : QuoteRepository {
 
     override suspend fun findAllAnimeTitle(): List<AnimeTitle> = withContext(Dispatchers.IO) {
-        animeQuoteApi
+        // TODO Temporary fix until the endpoint is available
+        listOf(
+            AnimeTitle("JoJo's Bizarre Adventure"),
+            AnimeTitle("Fullmetal Alchemist: Brotherhood"),
+            AnimeTitle("Great Teacher Onizuka"),
+            AnimeTitle("One-Punch Man"),
+            AnimeTitle("Kaiji"),
+            AnimeTitle("Death Note"),
+            AnimeTitle("Naruto"),
+            AnimeTitle("Hunter X Hunter"),
+        ).sortedBy(AnimeTitle::value)
+
+       /* animeQuoteApi
             .getAvailableAnime()
             .filter { it.isNotEmpty() }
             .sorted()
-            .map(::AnimeTitle)
+            .map(::AnimeTitle)*/
     }
 
     override suspend fun findByAnimeTitle(animeTitle: AnimeTitle): List<Quote> = withContext(Dispatchers.IO) {
